@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
-// app.use("/", express.static(path.join(__dirname + "/app/assets")));
+app.use("/", express.static(path.join(__dirname + "/assets")));
 app.set('view engine', 'hbs');
 
 app.get('/', function(req, res) {
