@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var DB = require('../config/connection');
-var User = DB.models.User;
+var HealthReport = DB.models.HealthReport;
 
 function error(response, message) {
   response.status(500);
   response.json({error: message});
 }
 
-router.get('/users', function(req, res) {
-  User.findAll().then(function(users){
-    res.json(users);
-  })
-})
+// router.get('/schools', function(req, res) {
+//   School.findAll().then(function(schools){
+//     res.json(schools);
+//   })
+// })
 
 module.exports = router;
