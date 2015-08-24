@@ -9,16 +9,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'hbs');
 
 var schoolsController = require('./controllers/schools');
-var usersController = require('./controllers/users');
-var healthReportsController = require('./controllers/healthreports')
 
 app.get('/', function(req, res) {
   res.render("index")
 })
 
 app.use('/', schoolsController);
-app.use('/', usersController);
-app.use('/', healthReportsController);
 
 app.listen(4000, function() {
   console.log("Listening on port 4000");
