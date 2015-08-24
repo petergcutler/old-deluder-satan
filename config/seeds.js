@@ -1,6 +1,7 @@
 var DB = require('../config/connection');
 var User = DB.models.User;
 var School = DB.models.School;
+var HealthReport = DB.models.HealthReport;
 
 var users = [
   {username: "matt"},
@@ -16,11 +17,11 @@ var schools = [
 
 var healthReports = [
   {risk_category: 3,
-    number_critical: 1,
-    number_noncritical: 2,
-    date_inspected: "2/2/2014",
-    report_url: "www.healthreports.com",
-    school_id: 1
+    numberCritical: 1,
+    numberNoncritical: 2,
+    dateInspected: "2/2/2014",
+    reportUrl: "www.healthreports.com",
+    schoolId: 1
   }
 ]
 
