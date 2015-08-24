@@ -1,5 +1,11 @@
 var express = require('express');
 var app = express();
+var path = require('path');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use("/", express.static(path.join(__dirname + "/app/assets")));
+app.set('view engine', 'hbs');
 
 app.get('/', function(req, res) {
   res.send("Hello World")
