@@ -14,4 +14,20 @@ router.get('/schools', function(req, res) {
   })
 })
 
+// router.get("/schools/:id", function(req, res){
+//   Artist.findById(req.params.id).then(function(school){
+//     if(!school) return error(res, "not found");
+//     res.json(school);
+//   });
+// });
+
+router.get("/schools/:id/healthreports", function(req, res){
+  School.findById(req.params.id).then(function(school){
+    if(!school) return error(res, "not found");
+    school.getHealthReports().then(function(healthreports){
+      res.send(healthreports);
+    });
+  });
+});
+
 module.exports = router;
