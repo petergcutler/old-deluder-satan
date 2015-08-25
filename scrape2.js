@@ -51,6 +51,7 @@ app.get('/scrape', function(req, res){
               var checks = $('.checkboxRedN');
               for (j=0; j<checks.length; j++){
                 if(checks[j].attribs.style.indexOf('color:#FF0000') > -1){
+                  //last character
                   cafeteria.riskcategory = checks[j].prev.prev.children[0].data.charAt(checks[j].prev.prev.children[0].data.length-1);
                 }
               }
