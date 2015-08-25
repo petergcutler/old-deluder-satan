@@ -83,9 +83,6 @@ html {
 
 .column {
 	float: left;
-	border: 2px solid Tomato;
-	border-radius: 20px;
-	text-align: center;
 }
 
 /* -----------------------------------*/
@@ -94,7 +91,25 @@ html {
 
 
 body {
-  background: lemonchiffon;
+  background-color: #ffffff;
+	color: #2c3e50;
+}
+
+.schools h2 {
+	font-size: 2em;
+	font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+	color: #507292;
+	margin: .3em 0 0 1em;
+}
+
+.schools h4 {
+	font-family: 'Roboto', sans-serif;
+	font-size: .8em;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin: 2.4em 0 0 2.3em;
 }
 
 #map {
