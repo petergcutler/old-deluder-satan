@@ -40,6 +40,5 @@ router.get("/schools/:id/health-report", function(req, res){
   });
 });
 
-// getHealthReports does not exist yet.
 
 module.exports = router;

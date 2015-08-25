@@ -1,5 +1,9 @@
 $(document).ready(function() {
-  $("body").on("click", function() {
-    console.log("JS loaded");
+  console.log("loading")
+  School.fetch().then(function(schools){
+    schools.forEach(function(school){
+      var view = new SchoolView(school);
+      view.render();
+    })
   })
 });
