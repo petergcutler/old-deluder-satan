@@ -10,7 +10,7 @@ app.set('view engine', 'hbs');
 
 var schoolsController = require('./controllers/schools');
 var usersController = require('./controllers/users');
-var healthReportsController = require('./controllers/healthreports')
+var healthReportsController = require('./controllers/healthReports')
 
 app.get('/', function(req, res) {
   res.render("index")

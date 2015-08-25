@@ -8,10 +8,10 @@ function error(response, message) {
   response.json({error: message});
 }
 
-// router.get('/schools', function(req, res) {
-//   School.findAll().then(function(schools){
-//     res.json(schools);
-//   })
-// })
+router.get('/health-reports', function(req, res) {
+  HealthReport.findAll().then(function(healthReports){
+    res.json(healthReports);
+  })
+})
 
 module.exports = router;

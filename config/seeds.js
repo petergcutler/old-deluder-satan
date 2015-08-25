@@ -1,9 +1,7 @@
 var DB = require("./connection");
 var User = DB.models.User;
 var School = DB.models.School;
-var data = {
-  schools: require("./test")
-};
+var HealthReport = DB.models.HealthReport;
 
 console.log("see below");
 console.log(data.schools.features[0].properties.NAME);
@@ -42,12 +40,13 @@ console.log("puppies");
 // ];
 
 var healthReports = [
-  {risk_category: 3,
-    number_critical: 1,
-    number_noncritical: 2,
-    date_inspected: "2/2/2014",
-    report_url: "www.healthreports.com",
-    school_id: 1
+  {
+    riskCategory: 3,
+    numberCritical: 1,
+    numberNoncritical: 2,
+    dateInspected: "2/2/2014",
+    reportUrl: "www.healthreports.com",
+    schoolId: 1
   }
 ]
 

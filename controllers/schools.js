@@ -24,18 +24,18 @@ router.get('/schools', function(req, res) {
   })
 })
 
-// router.get("/schools/:id", function(req, res){
-//   Artist.findById(req.params.id).then(function(school){
-//     if(!school) return error(res, "not found");
-//     res.json(school);
-//   });
-// });
-
 router.get("/schools/:id", function(req, res){
   School.findById(req.params.id).then(function(school){
     if(!school) return error(res, "not found");
-    school.getHealthReports().then(function(healthreports){
-      res.send(healthreports);
+    res.json(school);
+  });
+});
+
+router.get("/schools/:id/health-report", function(req, res){
+  School.findById(req.params.id).then(function(school){
+    if(!school) return error(res, "not found");
+    school.getHealthreport().then(function(healthReport){
+      res.json(healthReport);
     });
   });
 });
