@@ -16,7 +16,8 @@ var schools = [
 ];
 
 var healthReports = [
-  {risk_category: 3,
+  {
+    riskCategory: 3,
     numberCritical: 1,
     numberNoncritical: 2,
     dateInspected: "2/2/2014",
