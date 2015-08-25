@@ -8,14 +8,19 @@ function error(response, message) {
   response.json({error: message});
 }
 
-// get for ALL schools, index
+// PRIMARY ROUTES //
 
-// post for schools (post-MVP using automated scraper)
+// get - index (all schools) - "/"
 
-// get for individual schools, show
+// get - show (individual school) - "/schools/456"
 
-// get for individual schools, shows all health reports. We will axe this.
 
+// SECONDARY ROUTES //
+
+// post - create school - this would be post-MVP
+// using an automated scraper or something
+
+// delete and patch/put, same thing possibly
 
 
 router.get('/schools', function(req, res) {

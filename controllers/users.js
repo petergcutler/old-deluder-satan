@@ -8,6 +8,14 @@ function error(response, message) {
   response.json({error: message});
 }
 
+// get - show (single user) - "/users/332"
+
+// post - new - "users/new"
+
+// patch/put - update - "/users/edit"
+
+// delete - delete - "/users/delete"
+
 router.get('/users', function(req, res) {
   User.findAll().then(function(users){
     res.json(users);
