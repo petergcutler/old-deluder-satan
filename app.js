@@ -10,7 +10,9 @@ app.set('view engine', 'hbs');
 
 var schoolsController = require('./controllers/schools');
 var usersController = require('./controllers/users');
+
 var healthReportsController = require('./controllers/healthreports');
+var commentsController = require('./controllers/comments');
 
 app.get('/', function(req, res) {
   res.render("index");
@@ -19,6 +21,7 @@ app.get('/', function(req, res) {
 app.use('/', schoolsController);
 app.use('/', usersController);
 app.use('/', healthReportsController);
+app.use('/', commentsController);
 
 app.set('port', (process.env.PORT || 4000));
 
