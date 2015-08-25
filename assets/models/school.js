@@ -21,7 +21,7 @@ School.fetch = function() {
 
 School.prototype = {
   fetchHealthReports: function() {
-    var url = '/schools/' + this.id + '/health-reports';
+    var url = '/schools/' + this.id + '/health-report';
     var request = $.getJSON(url);
       .then(function(response){
         var healthReports = [];
