@@ -10,16 +10,16 @@ app.set('view engine', 'hbs');
 
 var schoolsController = require('./controllers/schools');
 var usersController = require('./controllers/users');
-var healthReportsController = require('./controllers/healthReports')
+var healthReportsController = require('./controllers/healthReports');
 
 app.get('/', function(req, res) {
-  res.render("index")
-})
+  res.render("index");
+});
 
 app.use('/', schoolsController);
 app.use('/', usersController);
 app.use('/', healthReportsController);
 
-app.listen(4000, function() {
+app.listen(process.env.PORT || 4000, function() {
   console.log("Listening on port 4000");
-})
+});
