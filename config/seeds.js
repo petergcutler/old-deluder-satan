@@ -10,31 +10,43 @@ var users = [
   {username: "karl"}
 ];
 
-var data = {
-  public: require("./publicSchools"),
-  charter: require("./charterSchools"),
-  private: require("./independentSchools")
-};
+var data = require("./cafeterias");
 
 var schools = [];
+var healthReports = [];
+//
+// for(i = 0; i < data.length; i++){
+//     artist = artists[i];
+//     songs = data.songs[artist.name];
+//     for(s = 0; s < songs.length; s++){
+//       song = songs[s];
+//       school.healthId = school.id;
+//       schools.push({name: name, address: address});
+//       healthReport.push(healthReports);
+//     }
+//   }
+//
+//
+//
+//
+// for (var i = 0; i < data.public.features.length; i++){
+//   name = data.public.features[i].properties.NAME;
+//   address = data.public.features[i].properties.ADDRESS;
+//   enrollment = data.public.features[i].properties.TOTAL_STUD;
+//   schools.push({name: name, address: address});
+// }
 
-for (var i = 0; i < data.public.features.length; i++){
-  name = data.public.features[i].properties.NAME;
-  address = data.public.features[i].properties.ADDRESS;
-  schools.push({name: name, address: address});
-}
-
-for (var i = 0; i < data.charter.features.length; i++){
-  name = data.charter.features[i].properties.NAME;
-  address = data.charter.features[i].properties.ADDRESS;
-  schools.push({name: name, address: address});
-}
-
-for (var i = 0; i < data.private.features.length; i++){
-  name = data.private.features[i].properties.NAME;
-  address = data.private.features[i].properties.ADDRESS;
-  schools.push({name: name, address: address});
-}
+// for (var i = 0; i < data.charter.features.length; i++){
+//   name = data.charter.features[i].properties.NAME;
+//   address = data.charter.features[i].properties.ADDRESS;
+//   schools.push({name: name, address: address});
+// }
+//
+// for (var i = 0; i < data.private.features.length; i++){
+//   name = data.private.features[i].properties.NAME;
+//   address = data.private.features[i].properties.ADDRESS;
+//   schools.push({name: name, address: address});
+// }
 
 // var schools = [
 //   {name: "Dunbar", address: "101 N St. NW"},
