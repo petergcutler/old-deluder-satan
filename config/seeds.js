@@ -59,7 +59,7 @@ var healthReports = [
     numberCritical: 1,
     numberNoncritical: 2,
     dateInspected: "2/2/2014",
-    reportUrl: "www.healthreports.com",
+    reportUrl: "http://www.healthreports.com",
     schoolId: 1
   }
 ];

@@ -20,15 +20,15 @@ School.fetch = function() {
 };
 
 School.prototype = {
-  fetchHealthReports: function() {
+  fetchHealthReport: function() {
     var url = '/schools/' + this.id + '/health-report';
-    var request = $.getJSON(url);
+    var request = $.getJSON(url)
       .then(function(response){
-        var healthReports = [];
-        for(var i=0; i<response.length; i++) {
-          healthReports.push(new HealthReport(response[i]));
-        }
-        return healthReports;
+        var healthReport = response;
+        // for(var i=0; i<response.length; i++) {
+        //   healthReports.push(new HealthReport(response[i]));
+        // }
+        return healthReport;
       })
       .fail(function(response){
         console.log("JS failed to load");
