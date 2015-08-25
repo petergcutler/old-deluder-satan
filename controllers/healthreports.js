@@ -8,10 +8,11 @@ function error(response, message) {
   response.json({error: message});
 }
 
-router.get('/health-reports', function(req, res) {
-  HealthReport.findAll().then(function(healthReports){
-    res.json(healthReports);
-  })
-})
+// index of all health reports for all schools
+// router.get('/health-reports', function(req, res) {
+//   HealthReport.findAll().then(function(healthReports){
+//     res.json(healthReports);
+//   })
+// })
 
 module.exports = router;
