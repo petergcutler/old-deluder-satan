@@ -1340,7 +1340,8 @@
       "name":"RIVER TERRACE  EDUCATION CAMPUS",
       "address":"420 34TH ST NE",
       "criticals":"0",
-      "noncriticals":"0"
+      "noncriticals":"0",
+      "riskcategory":"0"
    },
    {
       "name":"RAYMOND ELEMENTARY SCHOOL",
@@ -1633,7 +1634,8 @@
       "name":"TWO RIVERS PUBLIC CHARTER SCHOOL",
       "address":"820 26TH ST NE",
       "criticals":"3",
-      "noncriticals":"3"
+      "noncriticals":"3",
+      "riskcategory":"0"
    },
    {
       "name":"TWO RIVERS PUBLIC CHARTER SCHOOL",

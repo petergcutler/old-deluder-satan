@@ -3,4 +3,4 @@ module.exports = function(sequelize, Sequelize){
     username: Sequelize.STRING,
     password: Sequelize.STRING
   });
-}
+};

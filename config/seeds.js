@@ -1,62 +1,43 @@
-var DB = require('../config/connection');
+var DB = require("./connection");
 var User = DB.models.User;
 var School = DB.models.School;
 var HealthReport = DB.models.HealthReport;
+var data = require("./cafeterias");
+
+var schools = [];
+var healthReports = [];
+for (var i = 0; i < data.length; i++){
+  name = data[i].name;
+  address = data[i].address;
+  criticals = parseInt(data[i].criticals);
+  noncriticals = parseInt(data[i].noncriticals);
+  riskcategory = parseInt(data[i].riskcategory);
+  schools.push(
+    { name: name,
+      address: address});
+  healthReports.push(
+    { riskCategory: riskcategory,
+      numberCritical: criticals,
+      numberNoncritical: noncriticals,
+      schoolId: i + 1
+    });
+    }
 
 var users = [
   {username: "matt"},
   {username: "nayana"},
   {username: "peter"},
   {username: "karl"}
-];
+  ];
 
-var schools = [
-  {name: "Dunbar", address: "101 N St. NW"},
-  {name: "Wilson", address: "3950 Chesapeake St. NW"}
-];
-
-var healthReports = [
-  {
-    riskCategory: 3,
-    numberCritical: 1,
-    numberNoncritical: 2,
-    dateInspected: "2/2/2014",
-    reportUrl: "http://www.healthreports.com",
-    schoolId: 1
-  }
-]
-
-// School.bulkCreate(schools).then(function() {
-//   User.bulkCreate(users).then(function() {
-//     console.log("Users and schools seeded")
-//     process.exit();
-//   })
-
-// DB.models.School.bulkCreate(data.artists).done(function(){
-//   DB.models.Artist.findAll().done(function(artists){
-//     var a, artist, s, song, songs, output = [];
-//     for(a = 0; a < artists.length; a++){
-//       artist = artists[a];
-//       songs = data.songs[artist.name];
-//       for(s = 0; s < songs.length; s++){
-//         song = songs[s];
-//         song.artistId = artist.id;
-//         output.push(song);
-//       }
-//     }
-//     DB.models.Song.bulkCreate(output).done(function(){
-//       process.exit();
-//     })
-//   });
-// });
 
 School.bulkCreate(schools).then(function() {
   console.log("Schools are seeded");
-})
+});
 
 HealthReport.bulkCreate(healthReports).then(function() {
-  console.log("Health Reports are seeded")
-})
+  console.log("Health Reports are seeded");
+});
 
 User.bulkCreate(users).then(function() {
   console.log("Users are seeded");
