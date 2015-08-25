@@ -2,6 +2,7 @@ var DB = require("./connection");
 var User = DB.models.User;
 var School = DB.models.School;
 var HealthReport = DB.models.HealthReport;
+var Comment = DB.models.Comment;
 var data = require("./cafeterias");
 
 var schools = [];
@@ -30,16 +31,23 @@ var users = [
   {username: "karl"}
   ];
 
+var comments = [
+  {body: "First!", userId: 1, schoolId: 1},
+  {body: "this school sucks!", userId: 2, schoolId: 2},
+  {body: "I love this school!", userId: 2, schoolId: 1},
+];
+
 
 School.bulkCreate(schools).then(function() {
   console.log("Schools are seeded");
-});
-
-HealthReport.bulkCreate(healthReports).then(function() {
-  console.log("Health Reports are seeded");
-});
-
-User.bulkCreate(users).then(function() {
-  console.log("Users are seeded");
-  process.exit();
+  HealthReport.bulkCreate(healthReports).then(function() {
+    console.log("Health Reports are seeded");
+    User.bulkCreate(users).then(function() {
+      console.log("Users are seeded");
+      Comment.bulkCreate(comments).then(function() {
+        console.log("Comments are seeded");
+        process.exit();
+      })
+    });
+  });
 });
