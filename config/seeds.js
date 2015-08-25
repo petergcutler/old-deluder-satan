@@ -1,18 +1,45 @@
-var DB = require('../config/connection');
+var DB = require("./connection");
 var User = DB.models.User;
 var School = DB.models.School;
+var data = {
+  schools: require("./test")
+};
 
-var users = [
-  {username: "matt"},
-  {username: "nayana"},
-  {username: "peter"},
-  {username: "karl"}
-];
+console.log("see below");
+console.log(data.schools.features[0].properties.NAME);
+console.log(data.schools.features[0].properties.ADDRESS);
+console.log("puppies");
+// var schoolsArray = [];
+//
+// DB.models.School.bulkCreate(data.schools).done(function(){
+//   DB.models.School.findAll().done(function(schools){
+//     var s, school;
+//     for(s = 0; s < schools.length; s++){
+//       school = schools[s];
+//       songs = data.songs[school.name];
+//       name =    data.schools.features[s].properties[5]
+//       asdfklsadfklafkl.adsfkafkasdkl
+//       address = data.adsfklakafkkl.
+//       schools.push({name: name, address: address})
+//
+//     }
+//   });
+// });
 
-var schools = [
-  {name: "Dunbar", address: "101 N St. NW"},
-  {name: "Wilson", address: "3950 Chesapeake St. NW"}
-];
+// // var DB = require('../config/connection');
+//
+//
+// var users = [
+//   {username: "matt"},
+//   {username: "nayana"},
+//   {username: "peter"},
+//   {username: "karl"}
+// ];
+//
+// var schools = [
+//   {name: "Dunbar", address: "101 N St. NW"},
+//   {name: "Wilson", address: "3950 Chesapeake St. NW"}
+// ];
 
 var healthReports = [
   {risk_category: 3,
@@ -23,6 +50,7 @@ var healthReports = [
     school_id: 1
   }
 ]
+
 
 // School.bulkCreate(schools).then(function() {
 //   User.bulkCreate(users).then(function() {
@@ -48,15 +76,15 @@ var healthReports = [
 //   });
 // });
 
-School.bulkCreate(schools).then(function() {
-  console.log("Schools are seeded");
-})
-
-HealthReport.bulkCreate(healthReports).then(function() {
-  console.log("Health Reports are seeded")
-})
-
-User.bulkCreate(users).then(function() {
-  console.log("Users are seeded");
-  process.exit();
-});
+// School.bulkCreate(schools).then(function() {
+//   console.log("Schools are seeded");
+// })
+//
+// HealthReport.bulkCreate(healthReports).then(function() {
+//   console.log("Health Reports are seeded")
+// })
+//
+// User.bulkCreate(users).then(function() {
+//   console.log("Users are seeded");
+//   process.exit();
+// });
