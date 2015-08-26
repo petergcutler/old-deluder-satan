@@ -2,30 +2,26 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var expressSession = require('express-session');
 var passport = require('passport')
-var Strategy = require('passport-local').Strategy
+var LocalStrategy = require('passport-local').Strategy
 var bcrypt = require('bcrypt-nodejs')
+var DB = require('./config/connection');
+var User = DB.models.User;
 
-app.use(expressSession({
+
+app.use(require('express-session')({
   secret: 'deluder',
   resave: false,
   saveUninitialized: false
 }))
-app.use(function(req, res, callback){
-  if(req.user){
-    res.locals.currentUser = req.user.username
-  }
-})
+
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(require('cookie-parser')());
 app.use("/assets", express.static(path.join(__dirname + "/assets")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 
-passport.use(new Strategy(function(username, password, callback){
-  var hashedPass = bcrypt.hashSync(password)
+passport.use(new LocalStrategy(function(username, password, callback){
   User.findOne({
     where: {
       username: username
@@ -33,6 +29,9 @@ passport.use(new Strategy(function(username, password, callback){
   }).then(function(user, err){
     if (err) { return callback(err); }
     if (!user) {
+      return callback(null, false);
+    }
+    if (!bcrypt.compareSync(password, user.password)){
       return callback(null, false);
     }
     return callback(null, user);
