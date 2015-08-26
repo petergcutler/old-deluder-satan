@@ -19,6 +19,7 @@ SchoolView.prototype = {
 
     schoolLink.on("click", function() {
       event.preventDefault();
+      console.log("schoolLink clicked")
       self.toggleSchool(schoolDiv);
     })
   },
