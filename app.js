@@ -8,7 +8,6 @@ var bcrypt = require('bcrypt-nodejs')
 var DB = require('./config/connection');
 var User = DB.models.User;
 
-
 app.use(require('express-session')({
   secret: 'deluder',
   resave: false,
