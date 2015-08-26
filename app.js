@@ -59,19 +59,22 @@ app.use(function(req, res, next){
 
 var schoolsController = require('./controllers/schools');
 var usersController = require('./controllers/users');
-var healthReportsController = require('./controllers/healthReports')
-var commentsController = require('./controllers/comments')
+
+var healthReportsController = require('./controllers/healthreports');
+var commentsController = require('./controllers/comments');
 
 
 app.get('/', function(req, res) {
-  res.render("index")
-})
+  res.render("index");
+});
 
 app.use('/', schoolsController);
 app.use('/', usersController);
 app.use('/', healthReportsController);
 app.use('/', commentsController);
 
-app.listen(4000, function() {
+app.set('port', (process.env.PORT || 4000));
+
+app.listen(app.get('port'), function() {
   console.log("Listening on port 4000");
-})
+});
