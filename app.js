@@ -50,11 +50,11 @@ passport.deserializeUser(function(id, callback){
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next){
+app.use(function(req, res, callback){
   if(req.user){
     res.locals.user = req.user.username
   }
-  next()
+  callback()
 })
 
 var schoolsController = require('./controllers/schools');
