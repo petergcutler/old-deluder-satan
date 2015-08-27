@@ -5,9 +5,24 @@ $(document).ready(function() {
     .setView([38.90, -77.01], 12);
 
   School.fetch().then(function(schools){
+    drawSchools(schools)
+    renderSearch(schools)
+  })
+
+  function renderSearch(schools) {
     //string that will have an option added on each pass of the loop
     var options ='';
+    schools.forEach(function(school){
+      //add an option html string with this school's id and name
+      var id = school.id;
+      var name = school.name;
+      options += '<option value="'+id+'">'+name+'</option>';
+    })
+    //at the end of the loop, add the options string to the datalist
+    document.getElementById('schooloptions').innerHTML = options;
+  }
 
+  function drawSchools(schools) {
     schools.forEach(function(school){
 
       var url = "https://api.mapbox.com/v4/geocode/mapbox.places/" + school.address + ", Washington, District of Columbia.json?proximity=-77,38.9&access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImJkN2FkOTFjNDM4OGQzNWUyYzY3NjU4ODM4ZDYwNDJmIn0.FLniij4ORShXSqRe6pcw-A"
@@ -30,31 +45,17 @@ $(document).ready(function() {
                 'marker-size': 'small',
                 url: "http://en.wikipedia.org/wiki/Washington,_D.C."
             }
-        })
-        .addTo(map);
+        }).addTo(map);
 
         schoolMapList.on('click', function(e){
           var schoolId = e.layer.feature.properties.identity
           School.fetchOne(schoolId).then(function(school){
             var view = new SchoolView(school)
           })
-          // console.log(school)
-
-          // console.log(view)
-          // view.render()
-          //
-
         })
-
       })
-      //add an option html string with this school's id and name
-      var id = school.id;
-      var name = school.name;
-      options += '<option value="'+id+'">'+name+'</option>';
     })
-      //at the end of the loop, add the options string to the datalist
-      document.getElementById('schooloptions').innerHTML = options;
-  })
+  }
 });
       //// Start Search
       function viewSchool(id){
