@@ -30,30 +30,16 @@ $(document).ready(function() {
                 'marker-size': 'small',
                 url: "http://en.wikipedia.org/wiki/Washington,_D.C."
             }
-        })
-        .addTo(map);
+        }).addTo(map);
 
-        schoolMapList.on('click', function(e){
-          var schoolId = e.layer.feature.properties.identity
-          var school = School.fetchOne(schoolId)
-          // console.log(school)
-          var view = new SchoolView(school)
-          // console.log(view)
-          view.render()
-          //
-
-        })
-
-      })
       //add an option html string with this school's id and name
       var id = school.id;
       var name = school.name;
       options += '<option value="'+id+'">'+name+'</option>';
-    })
+
       //at the end of the loop, add the options string to the datalist
       document.getElementById('schooloptions').innerHTML = options;
-  })
-});
+
       //// Start Search
       function viewSchool(id){
         //make sure id is a number
@@ -71,3 +57,30 @@ $(document).ready(function() {
         }
       }
       //// End Search
+
+
+        schoolMapList.on('click', function(e){
+          var schoolId = e.layer.feature.properties.identity
+          var url = "/schools/" + schoolId + "/health-report"
+          var schoolRequest = $.getJSON(url).then(function(response){
+            console.log(response)
+            schoolname = response.name
+            schoolid = response.id
+            schooladdress = response.address
+            schoolriskcat = response.riskCategory
+            schoolcrit = response.numberCritical
+            schoolnoncrit = response.numberNoncritical
+          })
+          var view = new SchoolView(schoolRequest)
+          console.log(schoolname + schoolid + schooladdress)
+
+          $("#schoolLabel").html(schoolname)
+          $("#addressLabel").html(schooladdress)
+          $("#riskLabel").html(schoolriskcat)
+          $("#criticalLabel").html(schoolcrit)
+          $("#noncriticalLabel").html(schoolnoncrit)
+        })
+      })
+    })
+  })
+});
