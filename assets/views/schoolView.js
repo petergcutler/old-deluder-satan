@@ -6,30 +6,46 @@ var SchoolView = function(school) {
   $(".schools").append(this.$el);
 }
 
+
+// replace: var clickurl = "/schools/" + schoolId + "/health-report"
+// var schoolRequest = $.getJSON(clickurl).then(function(response){
+//   console.log(response)
+//   schoolname = response.name
+//   schoolid = response.id
+//   schooladdress = response.address
+//   schoolriskcat = response.riskCategory
+//   schoolcrit = response.numberCritical
+//   schoolnoncrit = response.numberNoncritical
+// })
+// var view = new SchoolView(schoolRequest)
+// console.log(schoolname + schoolid + schooladdress)
+//
+// $("#schoolLabel").html(schoolname)
+// $("#addressLabel").html(schooladdress)
+// $("#riskLabel").html(schoolriskcat)
+// $("#criticalLabel").html(schoolcrit)
+// $("#noncriticalLabel").html(schoolnoncrit)
+
+
+
 SchoolView.prototype = {
   render: function() {
 
     var self = this;
+    var thisSchool = self.school
 
-    // $(".schools").append("<p>School id is</p>" + school.id + "<p>and the name is</p>" + school.name);
+    var report = thisSchool.fetchHealthReport()
+
+    console.log(report)
 
     self.$el.html(self.schoolTemplate(self.school));
 
-    // var schoolLink = self.$el.find(".showSchool");
-    // var schoolDiv = self.$el.find("div.schoolInfo");
 
-    // schoolDiv.hide();
-
-    // schoolLink.on("click", function() {
-    //   event.preventDefault();
-    //   console.log("schoolLink clicked")
-    //   self.toggleSchool(schoolDiv);
-    // })
   },
   schoolTemplate: function(school) {
     var html = $("<div>");
-    html.append("<p>School id is</p>" + this.school.id + "<p>and the name is</p>" + this.school.name);
-    html.append("<div class='schoolInfo'></div>");
+    // html.append("<p>School id is</p>" + this.school.id + "<p>and the name is</p>" + this.school.name);
+    // html.append("<div class='schoolInfo'></div>");
     // html.append("<p>" + school.address + "</p>");
     return(html);
   }

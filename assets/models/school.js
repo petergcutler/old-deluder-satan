@@ -19,6 +19,16 @@ School.fetch = function() {
     return request;
 };
 
+School.fetchOne = function(id) {
+  var request = $.getJSON('/schools/' + id)
+    .then(function(response) {
+      var school = new School(response)
+      console.log(school)
+      return school
+    })
+    return request
+}
+
 School.prototype = {
   fetchHealthReport: function() {
     var url = '/schools/' + this.id + '/health-report';
