@@ -7,7 +7,21 @@
 <div class="row main">
   <div id='map' class="column column-7"></div>
   <div class="schools column column-5">
-    <h2 class="one-school-name">Woodrow Wilson High School</h2>
-    <h5 class="one-school-address">3950 Chesapeake St NW</h5>
+
+    <input id="searchbox" autocomplete="off" value="" list="schooloptions" onselect="viewSchool(this.value)">
+    <datalist id="schooloptions">
+    </datalist>
+
+    <h4>School</h4>
+
+    <h2 id='schoolLabel'>DUNBAR SENIOR HIGH SCHOOL</h2>
+    <h4>Address:</h4>
+    <p id='addressLabel'>The moon</p>
+    <h4>Risk Category</h4>
+    <p id='riskLabel'>1</p>
+    <h4>Number of Critical Violations:</h4>
+    <p id='criticalLabel'>0</p>
+    <h4>Number of Noncritical Violations:</h4>
+    <p id='noncriticalLabel'>1</p>
   </div>
 </div>

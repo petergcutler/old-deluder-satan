@@ -35,6 +35,10 @@ router.get("/schools/:id/health-report", function(req, res){
   School.findById(req.params.id).then(function(school){
     if(!school) return error(res, "not found");
     school.getHealthreport().then(function(healthReport){
+      //add the school name and address to the json returned here so we can
+      //populate the selected school section
+      healthReport.dataValues.name =school.dataValues.name;
+      healthReport.dataValues.address =school.dataValues.address;
       res.json(healthReport);
     });
   });
