@@ -99,8 +99,13 @@ body {
 	font-size: 2em;
 	font-weight: 300;
 	font-family: 'Roboto', sans-serif;
+	text-transform: lowercase;
 	color: #507292;
 	margin: .5em 0 0 1em;
+}
+
+.schools h2:first-letter {
+	text-transform: uppercase;
 }
 
 .schools h4 {
