@@ -67,8 +67,8 @@ $(document).ready(function() {
 
           // console.log(e.layer.feature.properties.title)
           // console.log(e.layer.feature.properties.identity)
-          $(".one-school-name").html(schoolname)
-          $(".one-school-address").html(schooladdress)
+          $("#schoolLabel").html(schoolname)
+          $("#addressLabel").html(schooladdress)
         })
       })
     })
