@@ -9,9 +9,19 @@ $(document).ready(function() {
     renderSearch(schools)
   })
 
+  $("#schooloptions").change(function() {
+    $("#schooloptions option:selected").each(function(){
+      var schoolId = $(this).val()
+      School.fetchOne(schoolId).then(function(school){
+        var view = new SchoolView(school)
+      })
+    })
+
+  })
+
   function renderSearch(schools) {
     //string that will have an option added on each pass of the loop
-    var options ='';
+    var options ='<option>Select a school</option>';
     schools.forEach(function(school){
       //add an option html string with this school's id and name
       var id = school.id;
