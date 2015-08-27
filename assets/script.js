@@ -4,9 +4,13 @@ $(document).ready(function() {
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([38.90, -77.01], 12);
 
-  console.log("loading")
+
 
   School.fetch().then(function(schools){
+
+    //string that will have an option added on each pass of the loop
+    var options ='';
+
     schools.forEach(function(school){
 
       var myLayer = L.mapbox.featureLayer().addTo(map);
@@ -31,17 +35,39 @@ $(document).ready(function() {
                 url: "http://en.wikipedia.org/wiki/Washington,_D.C."
             }
         }).addTo(map);
-    
+
       })
       // var view = new SchoolView(school);
       // view.render();
+
+      //add an option html string with this school's id and name
+      var id = school.id;
+      var name = school.name;
+      options += '<option value="'+id+'">'+name+'</option>';
+
     })
+
+    //at the end of the loop, add the options string to the datalist
+     document.getElementById('schooloptions').innerHTML = options;
 
   })
 
-
-
-
-
-
 });
+
+//function called on selection in search input
+//getting the school specific json using the id
+//extract the field we want and put them in the html tags
+function viewSchool(id){
+  //make sure id is a number
+  if (Number(id)){
+     document.getElementById('searchbox').value = ""
+    var url = "/schools/"+id+"/health-report"
+    $.getJSON(url).then(function(response){
+      document.getElementById('schoolLabel').innerHTML = response.name;
+      document.getElementById('riskLabel').innerHTML = response.riskCategory;
+      document.getElementById('criticalLabel').innerHTML =  response.numberCritical;
+      document.getElementById('noncriticalLabel').innerHTML = response.numberNoncritical;
+      document.getElementById('addressLabel').innerHTML = response.address;
+    })
+  }
+}
