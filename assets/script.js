@@ -35,11 +35,13 @@ $(document).ready(function() {
 
         schoolMapList.on('click', function(e){
           var schoolId = e.layer.feature.properties.identity
-          var school = School.fetchOne(schoolId)
+          School.fetchOne(schoolId).then(function(school){
+            var view = new SchoolView(school)
+          })
           // console.log(school)
-          var view = new SchoolView(school)
+
           // console.log(view)
-          view.render()
+          // view.render()
           //
 
         })

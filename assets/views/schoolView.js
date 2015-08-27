@@ -6,40 +6,22 @@ var SchoolView = function(school) {
   $(".schools").append(this.$el);
 }
 
-
-// replace: var clickurl = "/schools/" + schoolId + "/health-report"
-// var schoolRequest = $.getJSON(clickurl).then(function(response){
-//   console.log(response)
-//   schoolname = response.name
-//   schoolid = response.id
-//   schooladdress = response.address
-//   schoolriskcat = response.riskCategory
-//   schoolcrit = response.numberCritical
-//   schoolnoncrit = response.numberNoncritical
-// })
-// var view = new SchoolView(schoolRequest)
-// console.log(schoolname + schoolid + schooladdress)
-//
-// $("#schoolLabel").html(schoolname)
-// $("#addressLabel").html(schooladdress)
-// $("#riskLabel").html(schoolriskcat)
-// $("#criticalLabel").html(schoolcrit)
-// $("#noncriticalLabel").html(schoolnoncrit)
-
-
-
 SchoolView.prototype = {
   render: function() {
 
     var self = this;
-    var thisSchool = self.school
 
-    var report = thisSchool.fetchHealthReport()
+    $("#schoolLabel").html(self.school.name)
+    $("#addressLabel").html(self.school.address)
 
-    console.log(report)
+    self.school.fetchHealthReport().then(function(report){
+      console.log(report)
+      $("#riskLabel").html(report.riskCategory)
+      $("#criticalLabel").html(report.numberCritical)
+      $("#noncriticalLabel").html(report.numberNoncritical)
+    })
 
     self.$el.html(self.schoolTemplate(self.school));
-
 
   },
   schoolTemplate: function(school) {

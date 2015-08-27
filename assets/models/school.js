@@ -23,7 +23,7 @@ School.fetchOne = function(id) {
   var request = $.getJSON('/schools/' + id)
     .then(function(response) {
       var school = new School(response)
-      console.log(school)
+      // console.log(school)
       return school
     })
     return request
