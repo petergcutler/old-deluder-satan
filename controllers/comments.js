@@ -14,4 +14,20 @@ router.get('/comments', function(req, res) {
   })
 })
 
+router.post("/comments", function(req, res){
+  Comment.create(req.body).then(function(comment){
+    res.json(comment);
+  });
+});
+
+router.delete("/comments/:id", function(req, res){
+  Comment.findById(req.params.id).then(function(comment){
+    if(!comment) return error(res, "not found");
+    comment.destroy().then(function(){
+      res.json({success: true});
+      console.log("deleted")
+    });
+  });
+});
+
 module.exports = router;
