@@ -60,5 +60,8 @@ School.prototype = {
         console.log("JS failed to load");
       })
     return request;
+  },
+  postComment: function(comment) {
+    console.log(comment)
   }
 }

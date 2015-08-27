@@ -15,7 +15,6 @@ router.get('/comments', function(req, res) {
 })
 
 router.post("/comments", function(req, res){
-  var username = req.user.username
   Comment.create(req.body).then(function(comment){
     res.json(comment);
   });

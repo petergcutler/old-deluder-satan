@@ -23,7 +23,7 @@ SchoolView.prototype = {
       console.log(response.comments)
       self.appendComments(response.comments);
       if(response.user){
-        self.appendCommentForm();
+        self.appendCommentForm(self);
       }
     })
   },
@@ -33,12 +33,16 @@ SchoolView.prototype = {
       var commentView = new CommentView(comment);
     })
   },
-  appendCommentForm: function(){
+  appendCommentForm: function(self){
     var commentDiv = $(".comments")
-    commentDiv.append("<form class='create-comment'>");
-    commentDiv.append("<input type='text' name='name' placeholder='name'>")
+    commentDiv.append("<form class='comment-form'>");
     commentDiv.append("<input type='text' name='body' placeholder='comment'>")
-    commentDiv.append("<input type='submit'>")
+    commentDiv.append("<input class='create-comment' type='submit'>")
     commentDiv.append("</form>")
+    $("input.create-comment").on("click", function(){
+      var comment = $("input[name='body']").val()
+      
+      self.school.postComment(comment)
+    })
   }
 }
