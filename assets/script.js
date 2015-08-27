@@ -19,6 +19,7 @@ $(document).ready(function() {
                 identity: school.id,
                 testdisplay: "this is a test",
                 'marker-size': 'small',
+                url: "http://en.wikipedia.org/wiki/Washington,_D.C."
             }
         })
         .addTo(map);
@@ -41,9 +42,11 @@ $(document).ready(function() {
         })
       })
     })
-  })
 
+  })
   L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImJkN2FkOTFjNDM4OGQzNWUyYzY3NjU4ODM4ZDYwNDJmIn0.FLniij4ORShXSqRe6pcw-A';
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([38.90, -77.01], 12);
+
+  console.log("loading")
 });
