@@ -20,9 +20,15 @@ SchoolView.prototype = {
       $("#criticalLabel").html(report.numberCritical)
       $("#noncriticalLabel").html(report.numberNoncritical)
     })
-
-    self.$el.html(self.schoolTemplate(self.school));
-
+    self.school.fetchComments().then(function(comments){
+      self.appendComments(comments);
+    })
+  },
+  appendComments: function(comments) {
+    var commentDiv = $("<div class='comment'></div>");
+    comments.forEach(function(comment){
+      var commentView = new CommentView(comment);
+      // commentView.render();
+    })
   }
-
 }

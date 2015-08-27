@@ -44,5 +44,15 @@ router.get("/schools/:id/health-report", function(req, res){
   });
 });
 
+router.get("/schools/:id/comments", function(req, res){
+  School.findById(req.params.id)
+  .then(function(school){
+    if(!school) return error(res, "not found");
+    return school.getComments().then(function(comment){
+      res.json(comment);
+    });
+  });
+});
+
 
 module.exports = router;

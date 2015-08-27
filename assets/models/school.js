@@ -44,5 +44,20 @@ School.prototype = {
         console.log("JS failed to load");
       })
     return request;
+  },
+  fetchComments: function() {
+    var url = '/schools/' + this.id + '/comments';
+    var request = $.getJSON(url)
+      .then(function(response){
+        var comments = [];
+        for(var i=0; i<response.length; i++) {
+          comments.push(new Comment(response[i]));
+        }
+        return comments;
+      })
+      .fail(function(response){
+        console.log("JS failed to load");
+      })
+    return request;
   }
 }
