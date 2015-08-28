@@ -26,11 +26,13 @@ SchoolView.prototype = {
 
     // add comments to view
     self.school.fetchComments().then(function(response){
+      user = response.user;
       self.appendComments(response);
     });
 
     // create comment click event handler
     $("input.create-comment").on("click", function(){
+      event.preventDefault()
       var data = {
         body: $("input[name='body']").val(),
         userId: user.id,
