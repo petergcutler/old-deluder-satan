@@ -10,6 +10,9 @@ SchoolView.prototype = {
   render: function() {
     var self = this;
 
+    var commentDiv = $(".comment")
+    commentDiv.empty();
+
     // add school name & address to view
     $("#schoolLabel").html(self.school.name)
     $("#addressLabel").html(self.school.address)
@@ -41,8 +44,6 @@ SchoolView.prototype = {
 
   },
   appendComments: function(response) {
-    var commentDiv = $(".comments")
-    commentDiv.empty();
     response.comments.forEach(function(comment){
       var commentView = new CommentView(comment);
     })
