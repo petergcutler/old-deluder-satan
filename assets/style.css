@@ -1,4 +1,29 @@
 /* -----------------------------------*/
+/* ---        VARIABLES            ---*/
+/* -----------------------------------*/
+/*
+ * Base styles
+ */
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300; }
+
+/*
+ * Typography
+ */
+.link {
+  color: #34495e;
+  text-decoration: none; }
+  .link:visited {
+    color: purple; }
+  .link:hover, .link:visited:hover {
+    color: #25496d;
+    text-decoration: underline; }
+
+/* -----------------------------------*/
+/* ---          IMPORTS            ---*/
+/* -----------------------------------*/
+/* -----------------------------------*/
 /* ---           RESETS            ---*/
 /* -----------------------------------*/
 /*
@@ -122,12 +147,12 @@ body {
   margin: 0 auto; }
 
 .sign-in, .sign-out, .sign-up, .current-user {
-  text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 1.2em;
-  line-height: 2.4em;
-  color: #7F7F7F; }
+  color: #7F7F7F;
+  text-decoration: none;
+  line-height: 2.4em; }
 
 #schooloptions {
   -webkit-appearance: none;
@@ -161,19 +186,19 @@ body {
 #infoPanel #schoolLabel {
   font-size: 2em;
   font-weight: 300;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-transform: lowercase;
   color: #507292; }
 
 #infoPanel #addressLabel {
   font-size: 2em;
   font-weight: 300;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-transform: lowercase;
   color: #507292; }
 
 #infoPanel h4 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #BFBFBF;
   font-size: .8em;
   font-weight: 500;
@@ -181,7 +206,7 @@ body {
   text-transform: uppercase; }
 
 #infoPanel h5 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: .7em;
   font-weight: 500;
   letter-spacing: 0.1em;
