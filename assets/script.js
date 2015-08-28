@@ -28,7 +28,6 @@ $(document).ready(function() {
         var view = new SchoolView(school)
       })
     })
-
   })
 
   function renderSearch(schools) {
@@ -67,6 +66,7 @@ $(document).ready(function() {
                 identity: school.id,
                 testdisplay: "this is a test",
                 'marker-size': 'small',
+                'marker-color': '#507292',
                 url: "http://en.wikipedia.org/wiki/Washington,_D.C."
             }
         }).addTo(map);
