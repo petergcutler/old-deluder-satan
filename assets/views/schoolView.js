@@ -10,8 +10,7 @@ SchoolView.prototype = {
   render: function() {
     var self = this;
 
-    var commentDiv = $(".comment")
-    commentDiv.empty();
+    self.getComments(self)
 
     // add school name & address to view
     $("#schoolLabel").html(self.school.name)
@@ -24,12 +23,6 @@ SchoolView.prototype = {
       $("#noncriticalLabel").html(report.numberNoncritical)
     });
 
-    // add comments to view
-    self.school.fetchComments().then(function(response){
-      user = response.user;
-      self.appendComments(response);
-    });
-
     // create comment click event handler
     $("input.create-comment").on("click", function(){
       event.preventDefault()
@@ -40,10 +33,21 @@ SchoolView.prototype = {
       }
       self.school.postComment(data)
         .then(function(){
-          self.render(); //re-draw school page with data from server
+          self.getComments(self); //re-draw school page with data from server
         })
     }); // (/create comment)
 
+  },
+  getComments: function(self) {
+    var commentDiv = $(".comment")
+    commentDiv.empty();
+    $(".comment-field").val("")
+
+    // add comments to view
+    self.school.fetchComments().then(function(response){
+      user = response.user
+      self.appendComments(response);
+    });
   },
   appendComments: function(response) {
     response.comments.forEach(function(comment){

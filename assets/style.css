@@ -243,7 +243,7 @@ body {
 /* -----------------------------------*/
 /* ---           comments          ---*/
 /* -----------------------------------*/
-.comments {
+.comment-box {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   display: flex;
@@ -298,6 +298,9 @@ body {
   font-size: 1em;
   font-weight: 400; }
 
+body {
+  height: 100%; }
+
 @media (min-width: 0) {
   #map {
     height: 50vh;
@@ -312,7 +315,8 @@ body {
 
   #infoPanel {
     width: 41.66vw;
-    margin: 0 auto; }
+    margin: 0 auto;
+    overflow: scroll; }
 
   .column {
     float: left; } }
