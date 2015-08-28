@@ -31,13 +31,14 @@ body {
   margin: 0 auto;
 }
 
+
 .sign-in, .sign-out, .sign-up, .current-user {
-	text-decoration: none;
-	font-family: "Roboto", sans-serif;
-	font-weight: 300;
-	font-size: 1.2em;
+	font-family: $base-font-family;
+	font-weight: $base-font-weight;
+  font-size: 1.2em;
+  color: $gray-loud-color;
+  text-decoration: none;
 	line-height: 2.4em;
-	color: #7F7F7F;
 }
 
 // .sign-in {
@@ -74,31 +75,31 @@ body {
 
 .name-and-address p, h2 {
 	font-size: 2em;
-	font-family: "Roboto", sans-serif;
-	font-weight: 300;
+	font-family: $base-font-family;
+	font-weight: $base-font-weight;
 	color: #7F7F7F;
 	margin: 0 0 1em 1em;
 }
 
 #infoPanel #schoolLabel {
 	font-size: 2em;
-	font-weight: 300;
-	font-family: 'Roboto', sans-serif;
+	font-weight: $base-font-weight;
+	font-family: $base-font-family;
 	text-transform: lowercase;
-	color: #507292;
+	color: $loud-color;
 }
 
 #infoPanel #addressLabel {
 	font-size: 2em;
-	font-weight: 300;
-	font-family: 'Roboto', sans-serif;
+	font-weight: $base-font-weight;
+	font-family: $base-font-family;
 	text-transform: lowercase;
-	color: #507292;
+	color: $loud-color;
 }
 
 #infoPanel h4 {
-	font-family: 'Roboto', sans-serif;
-	color: #BFBFBF;
+	font-family: $base-font-family;
+	color: $gray-quiet-color;
 	font-size: .8em;
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -106,7 +107,7 @@ body {
 }
 
 #infoPanel h5 {
-	font-family: 'Roboto', sans-serif;
+	font-family: $base-font-family;
 	font-size: .7em;
 	font-weight: 500;
 	letter-spacing: 0.1em;
