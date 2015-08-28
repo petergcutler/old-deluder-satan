@@ -17,7 +17,7 @@ CommentView.prototype ={
   commentTemplate: function(comment){
     var html = $("<div>");
     html.append("<h3>" + comment.body + "</h3>");
-    html.append("<h3>User Id: " + comment.userId + "</h3>");
+    html.append("<h4>User Id: " + comment.userId + "</h4>");
     html.append("<p>Posted on: " + comment.createdAt + "</p>")
     return(html);
   }
