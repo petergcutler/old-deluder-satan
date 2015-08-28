@@ -18,7 +18,9 @@ CommentView.prototype ={
     // var username = $.getJSON()
     var html = $("<div>");
     html.append("<h3>" + comment.body + "</h3>");
-    html.append("<p>Posted by: User # " + comment.userId + "</p>");
+    html.append("<h4>Posted by: User # " + comment.userId + "</h4>");
+    html.append("<p>Posted on: " + comment.createdAt + "</p>")
+
     return(html);
   }
 };
