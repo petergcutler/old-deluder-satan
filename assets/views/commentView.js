@@ -4,6 +4,7 @@ var CommentView = function(comment){
   this.render();
 };
 
+
 CommentView.prototype ={
   render: function(){
     // we'll be adding event listeners later but will still need access to the Comment view in the event listener
